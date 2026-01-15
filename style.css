@@ -1,45 +1,50 @@
 body {
   margin: 0;
+  font-family: Arial, sans-serif;
   background: black;
-  color: white;
-  display: flex;
-  justify-content: center;
+  color: #fff;
 }
 
 .hero {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.wrap {
+.container {
   position: relative;
   width: 300px;
 }
 
-/* KEDİ SABİT */
-.cat {
+/* SABİT KEDİ */
+.static-cat {
   width: 100%;
   border-radius: 24px;
+  box-shadow: 0 0 40px rgba(255,255,255,0.15);
 }
 
-/* 🪙 SADECE COIN HAREKET EDER */
+/* 🔥 SADECE COIN ANİMASYONLU */
 .coin {
   position: absolute;
   width: 90px;
-  right: -25px;
-  bottom: 65px;
 
-  animation: swing 3s ease-in-out infinite;
+  /* coin’in eldeki yeri */
+  right: -25px;
+  bottom: 60px;
+
   transform-origin: center center;
+  animation: coinWave 3s ease-in-out infinite;
+
+  filter: drop-shadow(0 0 12px gold);
 }
 
-@keyframes swing {
+@keyframes coinWave {
   0%   { transform: rotate(0deg) translateY(0); }
   25%  { transform: rotate(8deg) translateY(-6px); }
   50%  { transform: rotate(-8deg) translateY(0); }
-  75%  { transform: rotate(4deg) translateY(-4px); }
+  75%  { transform: rotate(5deg) translateY(-4px); }
   100% { transform: rotate(0deg) translateY(0); }
 }
