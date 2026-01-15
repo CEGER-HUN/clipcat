@@ -5,138 +5,21 @@
 <title>CLIPCAT</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #fff;
-  background: radial-gradient(circle at top left, #6a00ff, transparent 40%),
-              radial-gradient(circle at bottom right, #ff0055, transparent 40%),
-              radial-gradient(circle at center, #00ffd5, transparent 40%),
-              #0b0b0b;
-}
-
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 30px 20px;
-}
-
-/* GÖRSEL KAPSAYICI */
-.image-wrap {
-  position: relative;
-  width: 300px;
-}
-
-/* ANA KEDİ – TAMAMEN SABİT */
-.static-cat {
-  width: 100%;
-  border-radius: 24px;
-  box-shadow: 0 0 40px rgba(255,255,255,0.15);
-}
-
-/* COIN – SADECE BU HAREKETLİ */
-.coin {
-  position: absolute;
-  width: 90px;
-  right: -28px;
-  bottom: 62px;
-
-  /* 🎯 ELDE TUTULMA NOKTASI */
-  transform-origin: 30% 70%;
-
-  animation: coinSwing 3.2s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px gold);
-}
-
-/* DOĞAL COIN HAREKETİ */
-@keyframes coinSwing {
-  0%   { transform: rotate(0deg) translateY(0) scale(1); }
-  25%  { transform: rotate(4deg) translateY(-3px) scale(1.03); }
-  50%  { transform: rotate(-4deg) translateY(0) scale(1); }
-  75%  { transform: rotate(3deg) translateY(-2px) scale(1.02); }
-  100% { transform: rotate(0deg) translateY(0) scale(1); }
-}
-
-h1 {
-  font-size: 64px;
-  margin: 25px 0 10px;
-}
-
-.manifesto {
-  max-width: 650px;
-  font-size: 18px;
-  line-height: 1.6;
-  opacity: 0.85;
-}
-
-.buttons {
-  margin-top: 30px;
-}
-
-.buttons a,
-.buttons span {
-  display: inline-block;
-  margin: 10px;
-  padding: 14px 30px;
-  border-radius: 999px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.buttons a {
-  background: #fff;
-  color: #000;
-}
-
-.buttons span {
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.3);
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-footer {
-  padding: 40px;
-  text-align: center;
-  font-size: 12px;
-  opacity: 0.4;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <div class="hero">
 
-  <div class="image-wrap">
-    <img src="clipcat.png" class="static-cat" alt="CLIPCAT">
-    <img src="coin.png" class="coin" alt="CLIPCAT Coin">
+  <div class="wrap">
+    <img src="clipcat.png" class="cat">
+    <img src="coin.png" class="coin">
   </div>
 
   <h1>$CLIPCAT</h1>
 
-  <div class="manifesto">
-    CLIPCAT was never meant to make sense.<br>
-    No roadmap, no utility, no empty promises.<br>
-    Just a clipped cat, chaotic energy, and a community
-    that understands one simple truth: memes move markets.
-  </div>
-
-  <div class="buttons">
-    <span>🚀 Pump.fun — Coming Soon</span>
-    <a href="https://x.com/YOURX" target="_blank">🐦 X</a>
-    <a href="https://t.me/YOURTELEGRAM" target="_blank">💬 Telegram</a>
-  </div>
 </div>
-
-<footer>
-  © 2026 CLIPCAT — Just a meme, nothing more.
-</footer>
 
 </body>
 </html>
