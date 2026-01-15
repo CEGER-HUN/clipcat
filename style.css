@@ -5,55 +5,78 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #ffffff;
-  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f7f9;
   color: #111;
+  text-align: center;
 }
 
-/* ÜST ALAN */
+/* HERO */
 .hero {
-  padding: 40px 20px;
+  padding: 60px 20px 40px;
 }
 
-.hero img {
+.hero-img {
   width: 100%;
-  max-width: 350px;
+  max-width: 320px;   /* 🔥 GÖRSEL BOYUTU KONTROL */
   height: auto;
+  margin: 0 auto 30px;
   display: block;
-  margin: 0 auto 20px;
 }
 
 .hero h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
+  font-size: 3rem;
+  letter-spacing: 2px;
 }
 
-.hero p {
-  color: #555;
+.subtitle {
+  margin-top: 10px;
+  font-size: 1rem;
+  opacity: 0.7;
 }
 
-/* ALT GÖRSEL */
-.main {
+/* CONTENT */
+.content {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 0 20px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* VISUAL */
+.visual {
   padding: 40px 20px;
 }
 
-.main img {
+.visual-img {
   width: 100%;
-  max-width: 420px;
+  max-width: 420px;  /* 🔥 ALT GÖRSEL DE SINIRLI */
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
 /* FOOTER */
-footer {
-  padding: 30px 20px;
+.footer {
+  margin-top: 80px;
+  padding: 40px 20px;
+  background: #111;
+  color: #fff;
 }
 
-footer a {
+.socials {
+  margin-bottom: 20px;
+}
+
+.socials a {
   margin: 0 10px;
+  color: #fff;
   text-decoration: none;
   font-weight: bold;
-  color: #000;
+}
+
+.socials a:hover {
+  opacity: 0.7;
 }
