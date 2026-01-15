@@ -6,77 +6,95 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #f6f7f9;
+  background: #f7f7f7;
   color: #111;
   text-align: center;
 }
 
 /* HERO */
 .hero {
-  padding: 60px 20px 40px;
+  min-height: 100vh;
+  padding: 80px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-img {
+  max-width: 320px;
   width: 100%;
-  max-width: 320px;   /* 🔥 GÖRSEL BOYUTU KONTROL */
   height: auto;
-  margin: 0 auto 30px;
-  display: block;
+  margin-bottom: 40px;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  letter-spacing: 2px;
+  font-size: 64px;
+  letter-spacing: 6px;
+  margin-bottom: 20px;
 }
 
-.subtitle {
-  margin-top: 10px;
-  font-size: 1rem;
+.tagline {
+  font-size: 18px;
+  line-height: 1.6;
   opacity: 0.7;
 }
 
-/* CONTENT */
-.content {
-  max-width: 600px;
-  margin: 60px auto;
-  padding: 0 20px;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-/* VISUAL */
+/* MAIN VISUAL */
 .visual {
-  padding: 40px 20px;
+  padding: 120px 20px;
 }
 
-.visual-img {
+.visual img {
+  max-width: 600px;
   width: 100%;
-  max-width: 420px;  /* 🔥 ALT GÖRSEL DE SINIRLI */
   height: auto;
-  display: block;
-  margin: 0 auto;
 }
 
 /* FOOTER */
-.footer {
-  margin-top: 80px;
-  padding: 40px 20px;
+footer {
+  padding: 80px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.socials a {
+  text-decoration: none;
+  color: #111;
+  border: 1px solid #111;
+  padding: 12px 28px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.socials a:hover {
   background: #111;
   color: #fff;
 }
 
-.socials {
-  margin-bottom: 20px;
+footer span {
+  font-size: 14px;
+  opacity: 0.5;
 }
 
-.socials a {
-  margin: 0 10px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
+/* MOBILE */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 42px;
+  }
 
-.socials a:hover {
-  opacity: 0.7;
+  .hero-img {
+    max-width: 240px;
+  }
+
+  .visual img {
+    max-width: 90%;
+  }
 }
