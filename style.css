@@ -1,53 +1,111 @@
 body {
   margin: 0;
-  background: black;
-  display: flex;
-  justify-content: center;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background: radial-gradient(circle at top left, #6a00ff, transparent 40%),
+              radial-gradient(circle at bottom right, #ff0055, transparent 40%),
+              radial-gradient(circle at center, #00ffd5, transparent 40%),
+              #0b0b0b;
 }
 
-/* ANA KAPSAYICI */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 20px;
+}
+
 .container {
   position: relative;
-  width: 350px;
-  text-align: center;
+  width: 300px;
 }
 
-/* ANA KEDİ GÖRSELİ — SABİT */
+/* SABİT KEDİ — HİÇ OYNAMAZ */
 .static-cat {
   width: 100%;
   border-radius: 24px;
   box-shadow: 0 0 40px rgba(255,255,255,0.15);
-  display: block;
 }
 
-/* ELDEKİ COIN — TEK HAREKET EDEN ŞEY */
-.coin {
-  position: absolute;
+/* ANİMASYON — ELDEKİ COIN HİSSİ */
+.animated {
+  width: 100%;
+  margin-top: 32px;
+  border-radius: 24px;
 
-  /* 🔴 COIN KONUMU (GEREKİRSE AYARLARIZ) */
-  top: 120px;
-  left: 60px;
+  /* ❗ gölge sabit, animasyona girmiyor */
+  box-shadow: 0 0 20px rgba(255,215,0,0.2);
 
-  width: 80px;
+  /* 🎯 SADECE EL TARAFI ETKİLENİR */
+  transform-origin: 63% 42%;
 
-  transform-origin: top center;
   animation:
-    coinSwing 2.4s ease-in-out infinite,
-    coinGlow 1.8s ease-in-out infinite;
+    wave 4.5s cubic-bezier(.45,0,.55,1) infinite,
+    glow 3.5s ease-in-out infinite;
+
+  will-change: transform, filter;
 }
 
-/* COIN SALLANMA */
-@keyframes coinSwing {
-  0%   { transform: rotate(0deg); }
-  25%  { transform: rotate(10deg); }
-  50%  { transform: rotate(-10deg); }
-  75%  { transform: rotate(6deg); }
-  100% { transform: rotate(0deg); }
+/* MİKRO, NEREDEYSE FARK EDİLMEYEN SALLANMA */
+@keyframes wave {
+  0%   { transform: rotate(0deg) translateY(0); }
+  25%  { transform: rotate(0.5deg) translateY(-1px); }
+  50%  { transform: rotate(-0.5deg) translateY(0); }
+  75%  { transform: rotate(0.4deg) translateY(-1px); }
+  100% { transform: rotate(0deg) translateY(0); }
 }
 
-/* COIN PARLAMA */
-@keyframes coinGlow {
+/* SADECE COIN PARLAR GİBİ */
+@keyframes glow {
   0%   { filter: brightness(1); }
-  50%  { filter: brightness(1.5) drop-shadow(0 0 14px gold); }
+  50%  { filter: brightness(1.08) drop-shadow(0 0 6px gold); }
   100% { filter: brightness(1); }
+}
+
+h1 {
+  font-size: 64px;
+  margin: 30px 0 10px;
+}
+
+.manifesto {
+  max-width: 650px;
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.buttons {
+  margin-top: 30px;
+}
+
+.buttons a,
+.buttons span {
+  display: inline-block;
+  margin: 10px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.buttons a {
+  background: #fff;
+  color: #000;
+}
+
+.buttons span {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+footer {
+  padding: 40px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.4;
 }
