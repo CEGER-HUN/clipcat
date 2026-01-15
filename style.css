@@ -12,42 +12,42 @@ body {
   text-align: center;
 }
 
-/* TÜM GÖRSELLER */
-.container img {
+/* ANA KEDİ GÖRSELİ — SABİT */
+.static-cat {
   width: 100%;
   border-radius: 24px;
-}
-
-/* SABİT GÖRSEL */
-.static-cat {
   box-shadow: 0 0 40px rgba(255,255,255,0.15);
+  display: block;
 }
 
-/* ANİMASYONLU GÖRSEL — SADECE EL/COIN HİSSİ */
-.animated {
-  margin-top: 30px;
-  box-shadow: 0 0 30px rgba(255,215,0,0.25);
+/* ELDEKİ COIN — TEK HAREKET EDEN ŞEY */
+.coin {
+  position: absolute;
 
-  /* 🔥 KRİTİK NOKTA */
-  transform-origin: 62% 38%;
+  /* 🔴 COIN KONUMU (GEREKİRSE AYARLARIZ) */
+  top: 120px;
+  left: 60px;
 
+  width: 80px;
+
+  transform-origin: top center;
   animation:
-    wave 3.5s ease-in-out infinite,
-    glow 2.8s ease-in-out infinite;
+    coinSwing 2.4s ease-in-out infinite,
+    coinGlow 1.8s ease-in-out infinite;
 }
 
-/* MİKRO SALLANMA — GÖVDE SABİT GİBİ */
-@keyframes wave {
+/* COIN SALLANMA */
+@keyframes coinSwing {
   0%   { transform: rotate(0deg); }
-  25%  { transform: rotate(1.2deg); }
-  50%  { transform: rotate(-1.2deg); }
-  75%  { transform: rotate(0.8deg); }
+  25%  { transform: rotate(10deg); }
+  50%  { transform: rotate(-10deg); }
+  75%  { transform: rotate(6deg); }
   100% { transform: rotate(0deg); }
 }
 
-/* YUMUŞAK COIN PARLAMASI */
-@keyframes glow {
+/* COIN PARLAMA */
+@keyframes coinGlow {
   0%   { filter: brightness(1); }
-  50%  { filter: brightness(1.15) drop-shadow(0 0 8px gold); }
+  50%  { filter: brightness(1.5) drop-shadow(0 0 14px gold); }
   100% { filter: brightness(1); }
 }
