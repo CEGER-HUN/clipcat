@@ -98,3 +98,40 @@ footer p {
   font-size: 12px;
   opacity: 0.4;
 }
+
+/* FOOTER */
+.footer {
+  margin-top: 100px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+/* SOSYAL BUTONLAR */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.social-buttons a {
+  padding: 14px 36px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.social-buttons a:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* FOOTER YAZISI */
+.footer p {
+  font-size: 12px;
+  opacity: 0.4;
+}
