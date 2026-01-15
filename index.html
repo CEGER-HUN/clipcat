@@ -32,31 +32,34 @@ body {
   width: 300px;
 }
 
-/* ANA KEDİ – SABİT */
+/* ANA KEDİ – TAMAMEN SABİT */
 .static-cat {
   width: 100%;
   border-radius: 24px;
   box-shadow: 0 0 40px rgba(255,255,255,0.15);
 }
 
-/* COIN – SADECE BU ANİMASYONLU */
+/* COIN – SADECE BU HAREKETLİ */
 .coin {
   position: absolute;
   width: 90px;
-  right: -30px;
-  bottom: 60px;
-  animation: coinSwing 2.5s ease-in-out infinite;
-  transform-origin: center center;
-  filter: drop-shadow(0 0 15px gold);
+  right: -28px;
+  bottom: 62px;
+
+  /* 🎯 ELDE TUTULMA NOKTASI */
+  transform-origin: 30% 70%;
+
+  animation: coinSwing 3.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px gold);
 }
 
-/* COIN HAREKET */
+/* DOĞAL COIN HAREKETİ */
 @keyframes coinSwing {
-  0%   { transform: rotate(0deg) translateY(0); }
-  25%  { transform: rotate(8deg) translateY(-6px); }
-  50%  { transform: rotate(-8deg) translateY(0); }
-  75%  { transform: rotate(6deg) translateY(-4px); }
-  100% { transform: rotate(0deg) translateY(0); }
+  0%   { transform: rotate(0deg) translateY(0) scale(1); }
+  25%  { transform: rotate(4deg) translateY(-3px) scale(1.03); }
+  50%  { transform: rotate(-4deg) translateY(0) scale(1); }
+  75%  { transform: rotate(3deg) translateY(-2px) scale(1.02); }
+  100% { transform: rotate(0deg) translateY(0) scale(1); }
 }
 
 h1 {
@@ -118,8 +121,8 @@ footer {
   <h1>$CLIPCAT</h1>
 
   <div class="manifesto">
-    CLIPCAT was never meant to make sense.  
-    No roadmap, no utility, no empty promises.  
+    CLIPCAT was never meant to make sense.<br>
+    No roadmap, no utility, no empty promises.<br>
     Just a clipped cat, chaotic energy, and a community
     that understands one simple truth: memes move markets.
   </div>
