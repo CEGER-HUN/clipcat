@@ -23,40 +23,6 @@ body {
   width: 300px;
 }
 
-/* SABİT KEDİ — HİÇ OYNAMAZ */
-.static-cat {
-  width: 100%;
-  border-radius: 24px;
-  box-shadow: 0 0 40px rgba(255,255,255,0.15);
-}
-
-/* ANİMASYON — ELDEKİ COIN HİSSİ */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #fff;
-  background: radial-gradient(circle at top left, #6a00ff, transparent 40%),
-              radial-gradient(circle at bottom right, #ff0055, transparent 40%),
-              radial-gradient(circle at center, #00ffd5, transparent 40%),
-              #0b0b0b;
-}
-
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 30px 20px;
-}
-
-/* GÖRSEL KAPSAYICI */
-.image-wrap {
-  position: relative;
-  width: 300px;
-}
-
 /* SABİT KEDİ */
 .static-cat {
   width: 100%;
@@ -64,98 +30,37 @@ body {
   box-shadow: 0 0 40px rgba(255,255,255,0.15);
 }
 
-/* 🪙 COIN — SADECE BU HAREKET EDER */
+/* COIN — SADECE COIN HAREKET EDER */
 .coin {
   position: absolute;
   width: 90px;
-  right: -28px;
-  bottom: 70px;
+  right: -24px;
+  bottom: 58px;
 
-  transform-origin: center center;
-  animation: coinSwing 3s ease-in-out infinite,
-             coinGlow 2.5s ease-in-out infinite;
+  transform-origin: center bottom;
+  animation: coinSwing 2.8s ease-in-out infinite,
+             coinGlow 2s ease-in-out infinite;
 }
 
-/* ELDE TUTULUYOR GİBİ SALLANMA */
+/* COIN SALINMA */
 @keyframes coinSwing {
   0%   { transform: rotate(0deg) translateY(0); }
-  25%  { transform: rotate(6deg) translateY(-5px); }
-  50%  { transform: rotate(-6deg) translateY(0); }
-  75%  { transform: rotate(4deg) translateY(-3px); }
+  25%  { transform: rotate(8deg) translateY(-6px); }
+  50%  { transform: rotate(-8deg) translateY(0); }
+  75%  { transform: rotate(4deg) translateY(-4px); }
   100% { transform: rotate(0deg) translateY(0); }
 }
 
-/* COIN PARLAMASI */
+/* COIN PARLAMA */
 @keyframes coinGlow {
   0%   { filter: brightness(1); }
-  50%  { filter: brightness(1.25) drop-shadow(0 0 10px gold); }
+  50%  { filter: brightness(1.35) drop-shadow(0 0 12px gold); }
   100% { filter: brightness(1); }
 }
 
 h1 {
   font-size: 64px;
-  margin: 30px 0 10px;
-}
-
-.manifesto {
-  max-width: 650px;
-  font-size: 18px;
-  line-height: 1.6;
-  opacity: 0.85;
-}
-
-.buttons {
-  margin-top: 30px;
-}
-
-.buttons a,
-.buttons span {
-  display: inline-block;
-  margin: 10px;
-  padding: 14px 30px;
-  border-radius: 999px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.buttons a {
-  background: #fff;
-  color: #000;
-}
-
-.buttons span {
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.3);
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-footer {
-  padding: 40px;
-  text-align: center;
-  font-size: 12px;
-  opacity: 0.4;
-}
-
-/* MİKRO, NEREDEYSE FARK EDİLMEYEN SALLANMA */
-@keyframes wave {
-  0%   { transform: rotate(0deg) translateY(0); }
-  25%  { transform: rotate(0.5deg) translateY(-1px); }
-  50%  { transform: rotate(-0.5deg) translateY(0); }
-  75%  { transform: rotate(0.4deg) translateY(-1px); }
-  100% { transform: rotate(0deg) translateY(0); }
-}
-
-/* SADECE COIN PARLAR GİBİ */
-@keyframes glow {
-  0%   { filter: brightness(1); }
-  50%  { filter: brightness(1.08) drop-shadow(0 0 6px gold); }
-  100% { filter: brightness(1); }
-}
-
-h1 {
-  font-size: 64px;
-  margin: 30px 0 10px;
+  margin: 25px 0 10px;
 }
 
 .manifesto {
