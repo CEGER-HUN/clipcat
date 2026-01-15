@@ -135,3 +135,13 @@ footer p {
   font-size: 12px;
   opacity: 0.4;
 }
+
+/* ANA GÖRSELLER */
+.hero-image img,
+.main-visual img {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+}
