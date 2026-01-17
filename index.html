@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+/* === GENEL TEMEL === */
 * {
   margin: 0;
   padding: 0;
@@ -16,37 +17,43 @@
 }
 
 body {
-  background: #0b0b0b;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* mor-mavi gradient */
   color: #ffffff;
   text-align: center;
   line-height: 1.6;
+  padding-bottom: 80px;
 }
 
+/* === HERO === */
 .hero {
-  padding: 90px 20px 70px;
+  padding: 80px 20px 40px;
 }
 
 .hero img {
-  max-width: 360px;
+  max-width: 380px;
   width: 90%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 12px 25px rgba(0,0,0,0.45);
 }
 
-h1 {
-  font-size: 3.4rem;
+.hero h1 {
+  font-size: 3.6rem;
   font-weight: 800;
+  color: #fdfefe;
 }
 
 .subtitle {
-  font-size: 1.2rem;
-  margin: 15px 0 35px;
-  color: #cfcfcf;
+  font-size: 1.3rem;
+  margin: 10px 0 25px;
+  color: #eaeaea;
 }
 
+/* === BUTTONS === */
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 18px;
   flex-wrap: wrap;
   margin-bottom: 30px;
 }
@@ -56,24 +63,37 @@ h1 {
   border-radius: 40px;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.2s ease;
+  transition: 0.25s ease;
+  backdrop-filter: blur(6px);
 }
 
-.btn.telegram { background: #229ED9; color: #fff; }
-.btn.twitter { background: #1DA1F2; color: #fff; }
-.btn.soon { background: #2ecc71; color: #0b0b0b; cursor: default; }
-
-.btn:hover { opacity: 0.85; }
-
-.proof {
-  font-size: 0.95rem;
-  color: #9a9a9a;
+.btn.telegram {
+  background: #2d9cdb;
+  color: #fff;
 }
 
+.btn.twitter {
+  background: #1da1f2;
+  color: #fff;
+}
+
+.btn.soon {
+  background: #faca3b;
+  color: #0a0a0a;
+  cursor: default;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  opacity: 0.9;
+}
+
+/* === SEKTIONLAR === */
 .container {
   max-width: 900px;
   margin: auto;
-  padding: 60px 20px 80px;
+  padding: 40px 20px 80px;
+  backdrop-filter: blur(4px);
 }
 
 .section {
@@ -81,43 +101,45 @@ h1 {
 }
 
 .section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 2.1rem;
+  margin-bottom: 16px;
+  color: #fafafa;
 }
 
 .section p {
-  max-width: 600px;
+  max-width: 650px;
   margin: auto;
-  color: #dcdcdc;
+  color: #ddd;
 }
 
 .features {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 28px;
   flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: 28px;
 }
 
 .feature {
-  background: #141414;
-  padding: 25px;
-  border-radius: 20px;
-  width: 260px;
+  background: rgba(33, 18, 55, 0.75);
+  padding: 28px;
+  border-radius: 22px;
+  width: 250px;
+  font-size: 1rem;
 }
 
+/* === FOOTER === */
 footer {
   padding: 40px 20px;
-  font-size: 0.85rem;
-  color: #888;
-  border-top: 1px solid #1f1f1f;
+  font-size: 0.82rem;
+  color: #c1c1c1;
+  border-top: 1px solid #372f56;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <img src="1000009796-Photoroom.png" alt="CLIPCAT">
   <h1>CLIPCAT 🧷🐱</h1>
@@ -127,10 +149,6 @@ footer {
     <a href="https://t.me/clipcatportal" target="_blank" class="btn telegram">Telegram</a>
     <a href="https://x.com/clipcat_57" target="_blank" class="btn twitter">X (Twitter)</a>
     <div class="btn soon">pump.fun — SOON</div>
-  </div>
-
-  <div class="proof">
-    Community-driven · No presale · Fair launch
   </div>
 </div>
 
