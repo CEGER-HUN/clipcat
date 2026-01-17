@@ -19,170 +19,181 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        
-        body { 
-            background: var(--bg-dark);
-            color: #fff; 
-            font-family: 'Montserrat', sans-serif; 
-            overflow-x: hidden;
-        }
+        body { background: var(--bg-dark); color: #fff; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 
-        /* === 1. PARALLAX BACKGROUND & PARTICLES === */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top center, #0d1117 0%, #010409 100%);
-            z-index: -1;
-        }
+        /* Background Effects */
+        #particles-js { position: fixed; width: 100%; height: 100%; background: radial-gradient(circle at top center, #0d1117 0%, #010409 100%); z-index: -1; }
 
-        /* === 2. NEON GLOW ANIMATION === */
-        @keyframes neonGlow {
-            0%, 100% { filter: drop-shadow(0 0 15px var(--primary)); }
-            50% { filter: drop-shadow(0 0 35px var(--secondary)); }
-        }
+        /* Reveal Animation */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* === 3. REVEAL ANIMATION === */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.9s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* === 4. STICKY CTA BAR === */
-        .sticky-cta {
-            position: fixed; bottom: 0; width: 100%; 
-            background: rgba(13, 17, 23, 0.85);
-            backdrop-filter: blur(15px); padding: 15px; 
-            z-index: 2000; display: flex;
-            justify-content: center; align-items: center; 
-            border-top: 2px solid var(--primary);
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
-        }
-
-        /* === 5. GLASSMORPHISM CARDS === */
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 30px;
-            padding: 40px;
-            transition: 0.4s;
-        }
-        .glass-card:hover {
-            background: rgba(140, 90, 255, 0.1);
-            border-color: var(--secondary);
-            transform: translateY(-10px);
-        }
-
-        /* Utility Styles */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; }
-        
-        h1 { 
-            font-family: 'Bangers'; font-size: clamp(5rem, 18vw, 10rem); 
-            line-height: 1; margin-bottom: 20px; 
-            animation: neonGlow 3s infinite ease-in-out;
-        }
-        
-        .hero-img { 
-            max-width: 350px; width: 70%; border-radius: 50%; 
-            border: 4px solid var(--primary); 
-            animation: float 4s infinite ease-in-out; 
-            z-index: 10;
-        }
+        /* Hero & Buttons */
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 100px 20px; }
+        h1 { font-family: 'Bangers'; font-size: clamp(5rem, 15vw, 9rem); animation: glow 2s infinite; line-height: 1; }
+        @keyframes glow { 0%, 100% { filter: drop-shadow(0 0 15px var(--primary)); } 50% { filter: drop-shadow(0 0 30px var(--secondary)); } }
+        .hero-img { max-width: 320px; width: 65%; border-radius: 50%; border: 4px solid var(--primary); animation: float 4s infinite ease-in-out; margin: 30px 0; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-        .btn { 
-            font-family: 'Bangers'; font-size: 1.5rem; padding: 15px 40px; 
-            border-radius: 50px; text-decoration: none; transition: 0.3s; 
-            display: inline-block; cursor: pointer; border: none; 
-        }
-        .btn-pump { background: var(--success); color: white; box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); }
-        .btn-twitter { background: #1DA1F2; color: white; box-shadow: 0 0 20px rgba(29, 161, 242, 0.4); }
+        /* BUTTONS SIDE BY SIDE */
+        .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+        .btn { font-family: 'Bangers'; font-size: 1.4rem; padding: 12px 30px; border-radius: 50px; text-decoration: none; transition: 0.3s; cursor: pointer; border: none; color: white; display: inline-flex; align-items: center; }
+        .btn-pump { background: var(--success); box-shadow: 0 5px 0 #166534; }
+        .btn-tg { background: #229ED9; box-shadow: 0 5px 0 #1565c0; }
+        .btn-x { background: #000; border: 1px solid #333; box-shadow: 0 5px 0 #111; }
+        .btn-tweet { background: #1DA1F2; box-shadow: 0 5px 0 #0d8bd9; margin-top: 15px; }
+        .btn:hover { transform: scale(1.05) translateY(-3px); filter: brightness(1.1); }
 
-        .section { padding: 120px 0; }
-        h2 { font-family: 'Bangers'; font-size: 4rem; color: var(--secondary); text-align: center; margin-bottom: 60px; }
+        /* Sections & Cards */
+        .section { padding: 80px 0; text-align: center; }
+        h2 { font-family: 'Bangers'; font-size: 3.5rem; color: var(--secondary); margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .glass-card { background: var(--glass); backdrop-filter: blur(10px); border: 1px solid var(--glass-border); padding: 30px; border-radius: 25px; transition: 0.3s; }
+        .glass-card:hover { border-color: var(--primary); background: rgba(140, 90, 255, 0.05); }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        /* Sticky CTA */
+        .sticky-bar { position: fixed; bottom: 0; width: 100%; background: rgba(13, 17, 23, 0.9); backdrop-filter: blur(10px); padding: 12px; z-index: 2000; text-align: center; border-top: 2px solid var(--primary); }
+
+        .ca-box { background: rgba(255,255,255,0.03); border: 2px dashed var(--primary); padding: 15px; border-radius: 15px; margin: 20px auto; max-width: 500px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <div id="particles-js"></div>
+<div id="particles-js"></div>
 
-    <div class="sticky-cta">
-        <a href="https://pump.fun" target="_blank" class="btn btn-pump" style="font-size: 1.2rem; padding: 10px 30px;">BUY $CLIPCAT NOW 🚀</a>
-    </div>
+<div class="sticky-bar">
+    <a href="https://pump.fun" target="_blank" class="btn btn-pump" style="padding: 10px 25px; font-size: 1.1rem;">BUY $CLIPCAT 🚀</a>
+</div>
 
-    <div class="container">
-        <section class="hero">
-            <p style="color: var(--secondary); font-weight: 900; letter-spacing: 8px; margin-bottom: 20px;">STAY CLIPPED OR GET RIPPED</p>
-            <h1>CLIPCAT</h1>
-            <img src="1000009796-Photoroom.png" class="hero-img" alt="CLIPCAT">
-            
-            <div style="margin-top: 30px;" class="reveal">
-                <a href="https://pump.fun" target="_blank" class="btn btn-pump">PUMP.FUN</a>
-                <a href="https://twitter.com/intent/tweet?text=I%20just%20found%20the%20sharpest%20gem%20on%20Solana!%20%F0%9F%93%8C%F0%9F%90%B1%20%24CLIPCAT%20is%20ready%20for%20the%20moon.%20Check%20it%20out:%20https://ceger-hun.github.io/clipcat/%20@clipcat_57" target="_blank" class="btn btn-twitter" style="margin-left: 15px;">VIRAL TWEET 🐦</a>
+<div class="container">
+    <section class="hero">
+        <p style="color: var(--secondary); font-weight: 900; letter-spacing: 5px;">THE SHARPEST CAT ON SOLANA</p>
+        <h1>CLIPCAT</h1>
+        <img src="1000009796-Photoroom.png" class="hero-img" alt="CLIPCAT">
+        
+        <div class="ca-box reveal" onclick="copyCA()">
+            <p style="font-size: 0.7rem; opacity: 0.7;">CONTRACT ADDRESS (CLICK TO COPY)</p>
+            <p id="ca-text" style="font-family: monospace; font-weight: 900;">Launching on Pump.fun...</p>
+        </div>
+
+        <div class="btn-group reveal">
+            <a href="https://t.me/clipcatportal" target="_blank" class="btn btn-tg">TELEGRAM</a>
+            <a href="https://x.com/clipcat_57" target="_blank" class="btn btn-x">FOLLOW X</a>
+        </div>
+        
+        <div class="reveal">
+            <a href="https://twitter.com/intent/tweet?text=I%20just%20clipped%20into%20%24CLIPCAT%20on%20Solana!%20%F0%9F%93%8C%F0%9F%90%B1%20The%20sharpest%20meme%20is%20here.%20Join%20the%20clowder:%20https://ceger-hun.github.io/clipcat/%20@clipcat_57" target="_blank" class="btn btn-tweet">🐦 TWEET ABOUT US</a>
+        </div>
+    </section>
+
+    <section class="section reveal">
+        <h2>NEDEN $CLIPCAT?</h2>
+        <div class="glass-card" style="max-width: 800px; margin: auto;">
+            <p style="font-size: 1.2rem; line-height: 1.8;">
+                $CLIPCAT, Solana ağının dağınıklığını bir arada tutan keskin bir güçtür. Biz sadece bir kedi değil, topluluğun birbirine "kenetlendiği" (clipped) bir aileyiz. Fair launch yapısı, sıfır vergi ve tamamen topluluk odaklı büyüme stratejimizle Solana'nın en ikonik maskotu olmayı hedefliyoruz.
+            </p>
+        </div>
+    </section>
+
+    <section class="section reveal">
+        <h2>NASIL SATIN ALINIR?</h2>
+        <div class="grid">
+            <div class="glass-card">
+                <h3 style="color:var(--secondary)">1. CÜZDAN KUR</h3>
+                <p>Phantom veya Solflare cüzdanını indir ve kur.</p>
             </div>
-        </section>
-
-        <section class="section reveal" id="team">
-            <h2>DEVELOPER CREW</h2>
-            <div class="grid">
-                <div class="glass-card">
-                    <h3 style="font-family: 'Bangers'; font-size: 2.5rem; color: var(--primary);">Ghst56</h3>
-                    <p style="margin-top: 10px; opacity: 0.8;">Founder & Dev. Building the future of ClipCat on Solana.</p>
-                </div>
-                <div class="glass-card">
-                    <h3 style="font-family: 'Bangers'; font-size: 2.5rem; color: var(--primary);">ClipArt</h3>
-                    <p style="margin-top: 10px; opacity: 0.8;">Lead Artist. The genius behind the sharpest visuals.</p>
-                </div>
-                <div class="glass-card">
-                    <h3 style="font-family: 'Bangers'; font-size: 2.5rem; color: var(--primary);">ClipMod</h3>
-                    <p style="margin-top: 10px; opacity: 0.8;">Community Guru. Keeping the clowder safe and hyped.</p>
-                </div>
+            <div class="glass-card">
+                <h3 style="color:var(--secondary)">2. SOL GÖNDER</h3>
+                <p>Cüzdanına borsadan veya başka bir yerden SOL aktar.</p>
             </div>
-        </section>
-    </div>
+            <div class="glass-card">
+                <h3 style="color:var(--secondary)">3. PUMP.FUN'DAN AL</h3>
+                <p>Sitemizdeki linke tıkla ve SOL'larını $CLIPCAT ile değiştir.</p>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p style="opacity: 0.5; padding: 100px 0 150px; text-align: center;">© 2026 CLIPCAT | NO FINANCIAL ADVICE</p>
-    </footer>
+    <section class="section reveal">
+        <h2>TOKENOMICS</h2>
+        <div class="grid">
+            <div class="glass-card">
+                <h3>1 MİLYAR</h3>
+                <p>Sabit Toplam Arz</p>
+            </div>
+            <div class="glass-card">
+                <h3>%0 VERGİ</h3>
+                <p>Alım-Satım Komisyonu Yok</p>
+            </div>
+            <div class="glass-card">
+                <h3>LİKİDİTE</h3>
+                <p>Otomatik Yakılır & Revoked</p>
+            </div>
+        </div>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Particle Effects Config
-        particlesJS('particles-js', {
-            "particles": {
-                "number": { "value": 80 },
-                "color": { "value": "#8c5aff" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5 },
-                "size": { "value": 3 },
-                "line_linked": { "enable": true, "distance": 150, "color": "#00f2ff", "opacity": 0.4, "width": 1 },
-                "move": { "enable": true, "speed": 2 }
-            }
-        });
+    <section class="section reveal">
+        <h2>ROADMAP</h2>
+        <div class="grid">
+            <div class="glass-card" style="border-left: 4px solid var(--primary);">
+                <h3>FAZ 1</h3>
+                <p>Lansman, Web sitesi, Sosyal Medya Baskınları.</p>
+            </div>
+            <div class="glass-card" style="border-left: 4px solid var(--secondary);">
+                <h3>FAZ 2</h3>
+                <p>DEX Listelemeleri, 1000+ Tutucu, Viral Marketing.</p>
+            </div>
+            <div class="glass-card" style="border-left: 4px solid var(--success);">
+                <h3>FAZ 3</h3>
+                <p>CEX Listelemeleri, NFT Koleksiyonu, Küresel Hype.</p>
+            </div>
+        </div>
+    </section>
 
-        // Reveal Animation Script
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    reveals[i].classList.add("active");
-                }
-            }
+    <section class="section reveal">
+        <h2>GELİŞTİRİCİ EKİP</h2>
+        <div class="grid">
+            <div class="glass-card"><h3>Ghst56</h3><p>Founder & Dev</p></div>
+            <div class="glass-card"><h3>ClipArt</h3><p>Designer</p></div>
+            <div class="glass-card"><h3>ClipMod</h3><p>Marketing</p></div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p style="padding: 100px 0 150px; text-align: center; opacity: 0.5;">© 2026 CLIPCAT | NOT FINANCIAL ADVICE</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS('particles-js', {
+        "particles": {
+            "number": { "value": 60 },
+            "color": { "value": "#8c5aff" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.4 },
+            "size": { "value": 3 },
+            "line_linked": { "enable": true, "distance": 150, "color": "#00f2ff", "opacity": 0.3, "width": 1 },
+            "move": { "enable": true, "speed": 2 }
         }
-        window.addEventListener("scroll", reveal);
-        reveal(); // Initial check
-    </script>
+    });
+
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    function copyCA() {
+        navigator.clipboard.writeText("SOON");
+        alert("CA Copied! 🚀");
+    }
+</script>
 </body>
 </html>
