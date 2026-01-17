@@ -16,121 +16,137 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background: radial-gradient(circle at top, #2b1055, #0b0715);
   color: #ffffff;
   text-align: center;
   line-height: 1.6;
-  padding-bottom: 80px;
 }
 
-/* HERO */
+/* === HERO === */
 .hero {
-  padding: 80px 20px 40px;
+  padding: 90px 20px 60px;
 }
 
 .hero h1 {
-  font-size: 3.6rem;
+  font-size: 3.8rem;
   font-weight: 800;
-  margin-bottom: 12px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 25px rgba(140, 90, 255, 0.6);
 }
 
 .subtitle {
-  font-size: 1.3rem;
-  margin-bottom: 28px;
-  color: #eaeaea;
+  font-size: 1.25rem;
+  margin: 12px 0 35px;
+  color: #d6d2ff;
 }
 
-/* IMAGE */
 .hero img {
-  max-width: 380px;
+  max-width: 420px;
   width: 90%;
-  margin: 0 auto 28px;
+  margin: 0 auto 35px;
   display: block;
-  border-radius: 20px;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.45);
+  border-radius: 24px;
+  box-shadow: 0 0 40px rgba(140, 90, 255, 0.45);
 }
 
-/* BUTTONS */
+/* === BUTTONS === */
 .buttons {
   display: flex;
   justify-content: center;
   gap: 18px;
   flex-wrap: wrap;
-  margin-bottom: 40px;
 }
 
 .btn {
-  padding: 14px 28px;
-  border-radius: 40px;
+  padding: 15px 32px;
+  border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
   transition: 0.25s ease;
 }
 
 .btn.telegram {
-  background: #2d9cdb;
+  background: linear-gradient(135deg, #229ED9, #6dd5ff);
   color: #fff;
 }
 
 .btn.twitter {
-  background: #1da1f2;
+  background: linear-gradient(135deg, #1DA1F2, #8fd3f4);
   color: #fff;
 }
 
 .btn.soon {
-  background: #faca3b;
-  color: #0a0a0a;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
   cursor: default;
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
 .btn:hover {
-  transform: scale(1.08);
-  opacity: 0.9;
+  transform: translateY(-3px);
 }
 
-/* CONTENT */
+/* === TRUST STRIP === */
+.trust {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 45px;
+}
+
+.trust div {
+  background: rgba(255,255,255,0.08);
+  padding: 14px 22px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+}
+
+/* === CONTENT === */
 .container {
   max-width: 900px;
   margin: auto;
-  padding: 40px 20px 80px;
+  padding: 80px 20px;
 }
 
 .section {
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 }
 
 .section h2 {
-  font-size: 2.1rem;
-  margin-bottom: 16px;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
 }
 
 .section p {
   max-width: 650px;
   margin: auto;
-  color: #ddd;
+  color: #dcdcff;
 }
 
+/* === FEATURES === */
 .features {
   display: flex;
   justify-content: center;
-  gap: 28px;
+  gap: 30px;
   flex-wrap: wrap;
-  margin-top: 28px;
+  margin-top: 35px;
 }
 
 .feature {
-  background: rgba(33, 18, 55, 0.75);
-  padding: 28px;
-  border-radius: 22px;
-  width: 250px;
+  background: rgba(255,255,255,0.06);
+  padding: 30px;
+  border-radius: 24px;
+  width: 260px;
+  box-shadow: inset 0 0 20px rgba(140, 90, 255, 0.2);
 }
 
-/* FOOTER */
+/* === FOOTER === */
 footer {
-  padding: 40px 20px;
-  font-size: 0.82rem;
-  color: #c1c1c1;
-  border-top: 1px solid #372f56;
+  padding: 45px 20px;
+  font-size: 0.85rem;
+  color: #aaa;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 </style>
 </head>
@@ -138,48 +154,47 @@ footer {
 <body>
 
 <div class="hero">
-  <!-- BAŞLIK EN ÜSTTE -->
   <h1>CLIPCAT 🧷🐱</h1>
-  <div class="subtitle">The cat that clips into Solana memes</div>
+  <div class="subtitle">Clipped into Solana culture</div>
 
-  <!-- FOTOĞRAF ALTTA -->
   <img src="1000009796-Photoroom.png" alt="CLIPCAT">
 
-  <!-- LİNKLER FOTOĞRAFIN ALTINDA -->
   <div class="buttons">
     <a href="https://t.me/clipcatportal" target="_blank" class="btn telegram">Telegram</a>
     <a href="https://x.com/clipcat_57" target="_blank" class="btn twitter">X (Twitter)</a>
     <div class="btn soon">pump.fun — SOON</div>
   </div>
+
+  <div class="trust">
+    <div>✅ Fair Launch</div>
+    <div>🚫 No Presale</div>
+    <div>🚫 No VC</div>
+    <div>🐱 Community Driven</div>
+  </div>
 </div>
 
 <div class="container">
-
   <div class="section">
-    <h2>About</h2>
+    <h2>What is CLIPCAT?</h2>
     <p>
-      CLIPCAT is a Solana meme coin.<br>
-      No presale. No VC. Fair launch only.<br><br>
-      Built for the culture.<br>
-      Driven by the community.
+      CLIPCAT is a Solana meme coin built for culture, virality and community energy.<br><br>
+      No insiders. No allocations. Just vibes and fair launch.
     </p>
   </div>
 
   <div class="section">
     <h2>Why CLIPCAT?</h2>
     <div class="features">
-      <div class="feature">🧷 Plugged into Solana culture</div>
-      <div class="feature">🐱 Simple, recognizable meme</div>
-      <div class="feature">🚀 Fair-launch mindset</div>
+      <div class="feature">🧷 Instantly recognizable meme</div>
+      <div class="feature">⚡ Built for fast Solana culture</div>
+      <div class="feature">🚀 Launch-first mindset</div>
     </div>
   </div>
-
 </div>
 
 <footer>
-  CLIPCAT is a meme coin with no intrinsic value.<br>
-  This website is for entertainment purposes only.<br>
-  Do your own research.
+  CLIPCAT is a meme coin with no intrinsic value or financial promise.<br>
+  This website is for entertainment purposes only. Always DYOR.
 </footer>
 
 </body>
