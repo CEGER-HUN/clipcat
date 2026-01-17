@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-/* === GENEL TEMEL === */
 * {
   margin: 0;
   padding: 0;
@@ -17,45 +16,47 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* mor-mavi gradient */
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
   color: #ffffff;
   text-align: center;
   line-height: 1.6;
   padding-bottom: 80px;
 }
 
-/* === HERO === */
+/* HERO */
 .hero {
   padding: 80px 20px 40px;
-}
-
-.hero img {
-  max-width: 380px;
-  width: 90%;
-  margin-bottom: 20px;
-  border-radius: 20px;
-  box-shadow: 0px 12px 25px rgba(0,0,0,0.45);
 }
 
 .hero h1 {
   font-size: 3.6rem;
   font-weight: 800;
-  color: #fdfefe;
+  margin-bottom: 12px;
 }
 
 .subtitle {
   font-size: 1.3rem;
-  margin: 10px 0 25px;
+  margin-bottom: 28px;
   color: #eaeaea;
 }
 
-/* === BUTTONS === */
+/* IMAGE */
+.hero img {
+  max-width: 380px;
+  width: 90%;
+  margin: 0 auto 28px;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.45);
+}
+
+/* BUTTONS */
 .buttons {
   display: flex;
   justify-content: center;
   gap: 18px;
   flex-wrap: wrap;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .btn {
@@ -64,7 +65,6 @@ body {
   text-decoration: none;
   font-weight: 600;
   transition: 0.25s ease;
-  backdrop-filter: blur(6px);
 }
 
 .btn.telegram {
@@ -88,12 +88,11 @@ body {
   opacity: 0.9;
 }
 
-/* === SEKTIONLAR === */
+/* CONTENT */
 .container {
   max-width: 900px;
   margin: auto;
   padding: 40px 20px 80px;
-  backdrop-filter: blur(4px);
 }
 
 .section {
@@ -103,7 +102,6 @@ body {
 .section h2 {
   font-size: 2.1rem;
   margin-bottom: 16px;
-  color: #fafafa;
 }
 
 .section p {
@@ -125,10 +123,9 @@ body {
   padding: 28px;
   border-radius: 22px;
   width: 250px;
-  font-size: 1rem;
 }
 
-/* === FOOTER === */
+/* FOOTER */
 footer {
   padding: 40px 20px;
   font-size: 0.82rem;
@@ -141,10 +138,14 @@ footer {
 <body>
 
 <div class="hero">
-  <img src="1000009796-Photoroom.png" alt="CLIPCAT">
+  <!-- BAŞLIK EN ÜSTTE -->
   <h1>CLIPCAT 🧷🐱</h1>
   <div class="subtitle">The cat that clips into Solana memes</div>
 
+  <!-- FOTOĞRAF ALTTA -->
+  <img src="1000009796-Photoroom.png" alt="CLIPCAT">
+
+  <!-- LİNKLER FOTOĞRAFIN ALTINDA -->
   <div class="buttons">
     <a href="https://t.me/clipcatportal" target="_blank" class="btn telegram">Telegram</a>
     <a href="https://x.com/clipcat_57" target="_blank" class="btn twitter">X (Twitter)</a>
@@ -154,7 +155,6 @@ footer {
 
 <div class="container">
 
-  <!-- ABOUT -->
   <div class="section">
     <h2>About</h2>
     <p>
@@ -165,7 +165,6 @@ footer {
     </p>
   </div>
 
-  <!-- WHY -->
   <div class="section">
     <h2>Why CLIPCAT?</h2>
     <div class="features">
