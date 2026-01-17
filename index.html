@@ -1,767 +1,161 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLIPCAT - The Most Adorable Cat of Crypto!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #0a0e27;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(ellipse at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(255, 69, 0, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
-            z-index: -1;
-            animation: bgShift 20s ease infinite;
-        }
-
-        @keyframes bgShift {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        header {
-            background: rgba(10, 14, 39, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 32px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 3s linear infinite;
-        }
-
-        @keyframes shimmer {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #ffd700, #ff6b00);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: #ffd700;
-        }
-
-        .hero {
-            padding: 180px 0 120px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 72px;
-            font-weight: 900;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffd700 0%, #ff6b00 50%, #ff1493 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeIn 1s;
-        }
-
-        .hero p {
-            font-size: 26px;
-            margin-bottom: 20px;
-            opacity: 0.95;
-            animation: fadeIn 1s;
-        }
-
-        .hero-cat {
-            max-width: 350px;
-            margin: 50px auto;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .hero-cat img {
-            width: 100%;
-            filter: drop-shadow(0 20px 60px rgba(255, 215, 0, 0.4));
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .btn {
-            padding: 18px 45px;
-            font-size: 18px;
-            font-weight: 700;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            text-transform: uppercase;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #ffd700, #ff6b00);
-            color: #0a0e27;
-            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.6);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border: 2px solid #ffd700;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 215, 0, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .contract {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 0, 0.1));
-            padding: 30px;
-            border-radius: 20px;
-            margin: 60px auto;
-            max-width: 700px;
-            text-align: center;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-        }
-
-        .contract h3 {
-            margin-bottom: 15px;
-            color: #ffd700;
-            font-size: 24px;
-        }
-
-        .contract p {
-            font-size: 20px;
-            font-weight: 600;
-            background: linear-gradient(135deg, #ffd700, #ff6b00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .features {
-            padding: 120px 0;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 56px;
-            font-weight: 900;
-            margin-bottom: 80px;
-            background: linear-gradient(135deg, #ffd700, #ff6b00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-        }
-
-        .feature-card {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(255, 107, 0, 0.05));
-            backdrop-filter: blur(20px);
-            padding: 45px;
-            border-radius: 25px;
-            text-align: center;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-15px);
-            border-color: #ffd700;
-            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
-        }
-
-        .feature-icon {
-            font-size: 64px;
-            margin-bottom: 25px;
-        }
-
-        .feature-card h3 {
-            font-size: 26px;
-            margin-bottom: 18px;
-            color: #ffd700;
-        }
-
-        .feature-card p {
-            font-size: 16px;
-            line-height: 1.8;
-            opacity: 0.9;
-        }
-
-        .tokenomics {
-            padding: 120px 0;
-        }
-
-        .tokenomics h2 {
-            text-align: center;
-            font-size: 56px;
-            font-weight: 900;
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, #ffd700, #ff6b00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .tokenomics > .container > p {
-            text-align: center;
-            font-size: 22px;
-            margin-bottom: 60px;
-            opacity: 0.9;
-        }
-
-        .tokenomics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-        }
-
-        .token-stat {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(255, 107, 0, 0.05));
-            padding: 45px;
-            border-radius: 25px;
-            text-align: center;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            transition: all 0.3s;
-        }
-
-        .token-stat:hover {
-            transform: scale(1.05);
-            border-color: #ffd700;
-            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
-        }
-
-        .token-stat h3 {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-
-        .token-stat p {
-            font-size: 20px;
-            font-weight: 600;
-            color: #ffd700;
-        }
-
-        .roadmap {
-            padding: 120px 0;
-        }
-
-        .roadmap h2 {
-            text-align: center;
-            font-size: 56px;
-            font-weight: 900;
-            margin-bottom: 80px;
-            background: linear-gradient(135deg, #ffd700, #ff6b00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .roadmap-timeline {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .roadmap-item {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(255, 107, 0, 0.05));
-            padding: 40px;
-            border-radius: 25px;
-            margin-bottom: 40px;
-            border-left: 5px solid #ffd700;
-            transition: all 0.3s;
-        }
-
-        .roadmap-item:hover {
-            transform: translateX(15px);
-            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
-        }
-
-        .roadmap-item h3 {
-            color: #ffd700;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .roadmap-item ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .roadmap-item li {
-            padding: 12px 0 12px 35px;
-            position: relative;
-            font-size: 17px;
-            opacity: 0.9;
-        }
-
-        .roadmap-item li:before {
-            content: "📎";
-            position: absolute;
-            left: 0;
-            font-size: 20px;
-        }
-
-        .faq {
-            padding: 120px 0;
-        }
-
-        .faq h2 {
-            text-align: center;
-            font-size: 56px;
-            font-weight: 900;
-            margin-bottom: 80px;
-            background: linear-gradient(135deg, #ffd700, #ff6b00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(255, 107, 0, 0.05));
-            padding: 35px;
-            border-radius: 20px;
-            margin-bottom: 25px;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-        }
-
-        .faq-item:hover {
-            border-color: #ffd700;
-            transform: translateX(10px);
-            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
-        }
-
-        .faq-question {
-            font-size: 22px;
-            font-weight: 700;
-            color: #ffd700;
-            margin-bottom: 15px;
-        }
-
-        .faq-answer {
-            font-size: 17px;
-            line-height: 1.8;
-            opacity: 0.9;
-        }
-
-        .community {
-            padding: 120px 0;
-            text-align: center;
-        }
-
-        .community h2 {
-            font-size: 56px;
-            font-weight: 900;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, #ffd700, #ff6b00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .community p {
-            font-size: 24px;
-            margin-bottom: 50px;
-            opacity: 0.9;
-        }
-
-        .community-cat {
-            max-width: 400px;
-            margin: 50px auto;
-        }
-
-        .community-cat img {
-            width: 100%;
-            filter: drop-shadow(0 20px 60px rgba(255, 215, 0, 0.4));
-        }
-
-        .social-links {
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            margin-top: 50px;
-        }
-
-        .social-btn {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 0, 0.1));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            text-decoration: none;
-            color: #fff;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-        }
-
-        .social-btn:hover {
-            background: linear-gradient(135deg, #ffd700, #ff6b00);
-            color: #0a0e27;
-            transform: scale(1.2);
-            border-color: #ffd700;
-        }
-
-        .social-btn svg {
-            width: 32px;
-            height: 32px;
-        }
-
-        footer {
-            background: rgba(10, 14, 39, 0.95);
-            padding: 50px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
-        }
-
-        footer p {
-            opacity: 0.7;
-            font-size: 15px;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 48px;
-            }
-
-            .hero p {
-                font-size: 20px;
-            }
-
-            .features h2, .tokenomics h2, .roadmap h2, .faq h2, .community h2 {
-                font-size: 40px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .feature-grid, .tokenomics-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLIPCAT 🧷🐱</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0b0b0b;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin: 15px 0 40px;
+  color: #cfcfcf;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+
+.btn {
+  padding: 14px 28px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.btn.telegram {
+  background: #229ED9;
+  color: #fff;
+}
+
+.btn.twitter {
+  background: #1DA1F2;
+  color: #fff;
+}
+
+.btn.soon {
+  background: #2ecc71;
+  color: #0b0b0b;
+  cursor: default;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.section {
+  margin-bottom: 70px;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.section p {
+  max-width: 600px;
+  margin: auto;
+  color: #dcdcdc;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.feature {
+  background: #141414;
+  padding: 25px;
+  border-radius: 20px;
+  width: 260px;
+}
+
+footer {
+  padding: 40px 20px;
+  font-size: 0.85rem;
+  color: #888;
+  border-top: 1px solid #1f1f1f;
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">🐱📎 CLIPCAT</div>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#tokenomics">Tokenomics</a></li>
-                    <li><a href="#roadmap">Roadmap</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-cat">
-                <img src="https://i.ibb.co/dsnTkHhg/top-cat.png" alt="Clothespin Cat">
-            </div>
-            <h1>CLIPCAT: Clothespin Cat</h1>
-            <p>The most adorable cat hanging on the blockchain! 🐱📎</p>
-            <p>Join the cutest meme revolution on Solana!</p>
-            
-            <div class="cta-buttons">
-                <a href="https://pump.fun" class="btn btn-primary" target="_blank">Buy $CLIPCAT</a>
-                <a href="#about" class="btn btn-secondary">Learn More</a>
-            </div>
+<div class="container">
 
-            <div class="contract">
-                <h3>Contract Address</h3>
-                <p>Coming Soon on Pump.fun! 🚀</p>
-            </div>
-        </div>
-    </section>
+  <!-- HERO -->
+  <h1>CLIPCAT 🧷🐱</h1>
+  <div class="subtitle">The cat that clips into Solana memes</div>
 
-    <section class="features" id="about">
-        <div class="container">
-            <h2>Why $CLIPCAT? 🎯</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🌟</div>
-                    <h3>Community Driven</h3>
-                    <p>Built by the community, for the community. No presale, no team tokens. Fair launch for everyone!</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔥</div>
-                    <h3>Solana Powered</h3>
-                    <p>Lightning fast transactions on Solana blockchain with minimal fees. The future is here!</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Unique Concept</h3>
-                    <p>A cute clothespin cat bringing joy and fun to the crypto world. Memorable and adorable!</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💎</div>
-                    <h3>Diamond Hands</h3>
-                    <p>Strong community of holders who believe in the long-term potential of CLIPCAT!</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Moon Mission</h3>
-                    <p>Our goal is simple: take CLIPCAT to the moon and beyond! Join the journey!</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎉</div>
-                    <h3>Fun & Engaging</h3>
-                    <p>Active community with memes, contests, and surprises. Never a dull moment with CLIPCAT!</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="buttons">
+    <a href="https://t.me/clipcatportal" target="_blank" class="btn telegram">Telegram</a>
+    <a href="https://x.com/clipcat_57" target="_blank" class="btn twitter">X (Twitter)</a>
+    <div class="btn soon">pump.fun — SOON</div>
+  </div>
 
-    <section class="tokenomics" id="tokenomics">
-        <div class="container">
-            <h2>Tokenomics 📊</h2>
-            <p>Fair launch on Pump.fun - Details coming soon!</p>
-            
-            <div class="tokenomics-grid">
-                <div class="token-stat">
-                    <h3>💯</h3>
-                    <p>Fair Launch</p>
-                </div>
-                <div class="token-stat">
-                    <h3>🔥</h3>
-                    <p>LP Burned</p>
-                </div>
-                <div class="token-stat">
-                    <h3>⚡</h3>
-                    <p>Solana Network</p>
-                </div>
-                <div class="token-stat">
-                    <h3>🌐</h3>
-                    <p>Community Owned</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ABOUT -->
+  <div class="section">
+    <h2>About</h2>
+    <p>
+      CLIPCAT is a Solana meme coin.<br>
+      No presale. No VC. Fair launch only.<br><br>
+      Built for the culture.<br>
+      Driven by the community.
+    </p>
+  </div>
 
-    <section class="roadmap" id="roadmap">
-        <div class="container">
-            <h2>Roadmap 🗺️</h2>
-            <div class="roadmap-timeline">
-                <div class="roadmap-item">
-                    <h3>Phase 1: Launch 🚀</h3>
-                    <ul>
-                        <li>Website Launch</li>
-                        <li>Token Creation on Pump.fun</li>
-                        <li>Community Building on Telegram & X</li>
-                        <li>Initial Marketing Push</li>
-                    </ul>
-                </div>
-                <div class="roadmap-item">
-                    <h3>Phase 2: Growth 📈</h3>
-                    <ul>
-                        <li>CoinGecko Listing</li>
-                        <li>CoinMarketCap Listing</li>
-                        <li>1000+ Holders</li>
-                        <li>Partnerships & Collaborations</li>
-                        <li>Community Giveaways</li>
-                    </ul>
-                </div>
-                <div class="roadmap-item">
-                    <h3>Phase 3: Expansion 🌍</h3>
-                    <ul>
-                        <li>First CEX Listing</li>
-                        <li>NFT Collection Launch</li>
-                        <li>Major Marketing Campaigns</li>
-                        <li>Community Rewards Program</li>
-                    </ul>
-                </div>
-                <div class="roadmap-item">
-                    <h3>Phase 4: Moon 🌕</h3>
-                    <ul>
-                        <li>Multiple CEX Listings</li>
-                        <li>Global Brand Recognition</li>
-                        <li>Merchandising</li>
-                        <li>To The Moon! 🚀🌕</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- WHY -->
+  <div class="section">
+    <h2>Why CLIPCAT?</h2>
+    <div class="features">
+      <div class="feature">🧷 Clipped into Solana culture</div>
+      <div class="feature">🐱 Simple, recognizable meme</div>
+      <div class="feature">🚀 Fair launch energy</div>
+    </div>
+  </div>
 
-    <section class="faq" id="faq">
-        <div class="container">
-            <h2>Frequently Asked Questions ❓</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">What is CLIPCAT?</div>
-                    <div class="faq-answer">CLIPCAT (Clothespin Cat) is a community-driven meme token on the Solana blockchain. It combines cute cat culture with cryptocurrency fun, creating a unique and engaging project for everyone!</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">How can I buy CLIPCAT?</div>
-                    <div class="faq-answer">CLIPCAT will be launched on Pump.fun. You'll need a Solana wallet (like Phantom) with some SOL. Once launched, simply connect your wallet and swap SOL for $CLIPCAT!</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Is there a presale?</div>
-                    <div class="faq-answer">No! CLIPCAT is a fair launch project with no presale or team tokens. Everyone gets an equal opportunity to participate from day one!</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">What makes CLIPCAT different?</div>
-                    <div class="faq-answer">CLIPCAT stands out with its adorable concept, strong community focus, and transparent approach. We're building more than just a token - we're building a fun, engaging community!</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">How can I join the community?</div>
-                    <div class="faq-answer">Join us on Telegram and follow us on X (Twitter) for the latest updates, memes, and community activities. Links are below!</div>
-                </div>
-            </div>
-        </div>
-    </section>
+</div>
 
-    <section class="community">
-        <div class="container">
-            <h2>Join the CLIPCAT Family! 🐱💕</h2>
-            <p>Be part of the cutest crypto community on Solana!</p>
-            
-            <div class="community-cat">
-                <img src="https://i.ibb.co/jPw7rCxk/bottom-cat.png" alt="CLIPCAT Community">
-            </div>
+<footer>
+  CLIPCAT is a meme coin with no intrinsic value.<br>
+  This website is for entertainment purposes only.<br>
+  Do your own research.
+</footer>
 
-            <div class="cta-buttons">
-                <a href="https://t.me/clipcat" class="btn btn-primary" target="_blank">Join Telegram</a>
-                <a href="https://twitter.com/clipcat" class="btn btn-secondary" target="_blank">Follow on X</a>
-            </div>
-
-            <div class="social-links">
-                <a href="https://twitter.com/clipcat" class="social-btn" target="_blank">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                </a>
-                <a href="https://t.me/clipcat" class="social-btn" target="_blank">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.75 4-1.74 6.68-2.88 8.03-3.44 3.82-1.59 4.61-1.87 5.13-1.87.11 0 .37.03.53.17.14.11.18.26.2.37.01.08.03.29.01.45z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>© 2025 CLIPCAT. All rights reserved.</p>
-            <p style="margin-top: 10px; font-size: 14px;">$CLIPCAT is a meme token with no intrinsic value or expectation of financial return.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
