@@ -22,28 +22,24 @@ body {
   line-height: 1.6;
 }
 
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 80px 20px;
+.hero {
+  padding: 90px 20px 70px;
 }
 
-/* IMAGE */
-.hero-img {
-  max-width: 320px;
-  width: 85%;
-  margin: 0 auto 30px;
-  display: block;
+.hero img {
+  max-width: 360px;
+  width: 90%;
+  margin-bottom: 30px;
 }
 
 h1 {
-  font-size: 3.2rem;
+  font-size: 3.4rem;
   font-weight: 800;
 }
 
 .subtitle {
   font-size: 1.2rem;
-  margin: 15px 0 40px;
+  margin: 15px 0 35px;
   color: #cfcfcf;
 }
 
@@ -52,7 +48,7 @@ h1 {
   justify-content: center;
   gap: 15px;
   flex-wrap: wrap;
-  margin-bottom: 80px;
+  margin-bottom: 30px;
 }
 
 .btn {
@@ -63,24 +59,21 @@ h1 {
   transition: 0.2s ease;
 }
 
-.btn.telegram {
-  background: #229ED9;
-  color: #fff;
+.btn.telegram { background: #229ED9; color: #fff; }
+.btn.twitter { background: #1DA1F2; color: #fff; }
+.btn.soon { background: #2ecc71; color: #0b0b0b; cursor: default; }
+
+.btn:hover { opacity: 0.85; }
+
+.proof {
+  font-size: 0.95rem;
+  color: #9a9a9a;
 }
 
-.btn.twitter {
-  background: #1DA1F2;
-  color: #fff;
-}
-
-.btn.soon {
-  background: #2ecc71;
-  color: #0b0b0b;
-  cursor: default;
-}
-
-.btn:hover {
-  opacity: 0.85;
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 20px 80px;
 }
 
 .section {
@@ -124,12 +117,9 @@ footer {
 
 <body>
 
-<div class="container">
-
-  <!-- IMAGE (EKLENEN TEK ŞEY) -->
-  <img src="1000009796-Photoroom.png" alt="CLIPCAT" class="hero-img">
-
-  <!-- HERO -->
+<!-- HERO -->
+<div class="hero">
+  <img src="1000009796-Photoroom.png" alt="CLIPCAT">
   <h1>CLIPCAT 🧷🐱</h1>
   <div class="subtitle">The cat that clips into Solana memes</div>
 
@@ -138,6 +128,13 @@ footer {
     <a href="https://x.com/clipcat_57" target="_blank" class="btn twitter">X (Twitter)</a>
     <div class="btn soon">pump.fun — SOON</div>
   </div>
+
+  <div class="proof">
+    Community-driven · No presale · Fair launch
+  </div>
+</div>
+
+<div class="container">
 
   <!-- ABOUT -->
   <div class="section">
@@ -154,9 +151,9 @@ footer {
   <div class="section">
     <h2>Why CLIPCAT?</h2>
     <div class="features">
-      <div class="feature">🧷 Clipped into Solana culture</div>
+      <div class="feature">🧷 Plugged into Solana culture</div>
       <div class="feature">🐱 Simple, recognizable meme</div>
-      <div class="feature">🚀 Fair launch energy</div>
+      <div class="feature">🚀 Fair-launch mindset</div>
     </div>
   </div>
 
